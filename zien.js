@@ -11,6 +11,8 @@ var ctype = 1;
 var html = document.getElementsByTagName('html')[0];
 var vp = document.createElement('div');
 vp.id = 'sight-cover';
+var _svg = document.createElement('div');
+_svg.style.display = 'none';
 var raf = false;
 
 var def = {
@@ -121,6 +123,11 @@ function changeColors(prot,deut,trit,cataract,sat) {
 	//var videos = document.getElementsByTagName('video');
 	//for(var i=0;i<videos.length;i++) videos[i].style.webkitFilter = f.length?f.join(' '):null;
 
+	if(!prot>0||deut>0||trit>0) {
+	  if(!_svg.parentNode) document.body.appendChild(_svg);
+	}
+	else if(_svg.parentNode) document.body.removeChild(_svg);
+
 	if(prot>0) f.push('url(#prot'+prot*100+')');
 	if(deut>0) f.push('url(#deut'+deut*100+')');
 	if(trit>0) f.push('url(#trit'+trit*100+')');
@@ -151,10 +158,7 @@ var xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function(e){
 	if(xhr.readyState==4){
 		if(xhr.status!=200) return console.error('Your browser does not support cross-domain XHR!');
-		var el = document.createElement('div');
-		el.style.display = 'none';
-		el.innerHTML = xhr.responseText;
-		document.body.appendChild(el);
+		_svg.innerHTML = xhr.responseText;
 		document.body.appendChild(vp);
 	}
 };
