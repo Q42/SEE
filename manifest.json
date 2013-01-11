@@ -2,7 +2,7 @@
   "name": "SEE",
   "version": "1.0",
   "manifest_version": 2,
-  "description": "\"What's it like being visually impaired?\" Playing with SEE might allow you to imagine that.",
+  "description": "SEE lets you view the web as a user with a visual impairment might",
   "icons": { "16": "icon16.png",
            "48": "icon48.png",
           "128": "icon128.png" },
