@@ -29,6 +29,7 @@ var def = {
 function setCover(u){
 	if(!u) return;
 	u = chrome.extension.getURL(u);
+	if(!vp.parentNode) document.body.appendChild(vp);
 	vp.style.backgroundImage = 'url('+u+')';
 	vp.style.display = 'block';
 	vp.style.width = null;
@@ -104,7 +105,7 @@ function ImageControl() {
 			if(/^\"/.test(u))u=u.substr(1,u.length-2);
 			u=u=='null'?null:u;
 			if(cover==u) return; cover = u;
-			if(u==null) vp.style.display='none';
+			if(u==null) { if(vp.parentNode) document.body.removeChild(vp) }
 			else if(/macula/.test(u)) maculaDeg(u);
 			else if(/pigmentosa/.test(u)) retPigmentosa(u);
 			else if(/glaucoom/.test(u)) glaucoom(u);
@@ -159,7 +160,6 @@ xhr.onreadystatechange = function(e){
 	if(xhr.readyState==4){
 		if(xhr.status!=200) return console.error('Your browser does not support cross-domain XHR!');
 		_svg.innerHTML = xhr.responseText;
-		document.body.appendChild(vp);
 	}
 };
 xhr.open('GET',fu,true);
