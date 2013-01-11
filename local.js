@@ -6,7 +6,7 @@ var localization = {
 
   //English
   EN: {
-    INTRO: '"What\'s it like being visually impaired?" As a well-sighted person you\'ll likely never fully get to understand that. But playing with SEE might allow you to imagine it.',
+    INTRO: 'What\'s it like being visually impaired? As a well-sighted person you\'ll likely never fully get to understand that. But playing with SEE might allow you to imagine it.',
 
     CONDITIONS_TITLE: 'Eye conditions',
     RETINITIS_PIGMENTOSA: 'Retinitis pigmentosa',
@@ -36,7 +36,7 @@ var localization = {
 
   // Dutch
   NL: {
-    INTRO: '"Hoe is het om slechtziend te zijn?" Als goedziende mens kom je dat nooit helemaal te weten. Maar door te spelen met SEE kun je het je misschien iets beter voorstellen.',
+    INTRO: 'Hoe is het om slechtziend te zijn? Als goedziende mens kom je dat nooit helemaal te weten. Maar door te spelen met SEE kun je het je misschien iets beter voorstellen.',
 
     CONDITIONS_TITLE: 'Oogaandoeningen',
 
