@@ -1,0 +1,33 @@
+body.re-cursor,
+body.re-cursor * { cursor: move !important; }
+
+#sight-cover {
+	display:none;
+	position: fixed;
+	z-index: 2147483647;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	-webkit-transition: background 1s ease-out, top 0.3s ease-out, left 0.3s ease-out;
+}
+
+#sight-cover.diabetic-ret {
+	background-repeat:repeat;
+	background-position:0 0;
+}
+#sight-cover.macula-deg {
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	-webkit-transform: scale(2);
+}
+#sight-cover.glaucoom {
+	background-repeat:no-repeat;
+	background-position:0 50%;
+	background-size:contain;
+}
+#sight-cover.ret-pigmentosa {
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	background-size:contain;
+}

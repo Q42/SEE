@@ -1,0 +1,49 @@
+{
+  "name": "SEE",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "\"What's it like being visually impaired?\" Playing with SEE might allow you to imagine that.",
+  "icons": { "16": "icon16.png",
+           "48": "icon48.png",
+          "128": "icon128.png" },
+  "browser_action": {
+    "default_title": "SEE",
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "background": {
+  	"scripts": ["com.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "css": ["zien.css"],
+      "js": ["zien.js"]
+    }
+  ],
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*"
+  ],
+  "web_accessible_resources": [
+    "images/diabetic-ret-1.png",
+    "images/diabetic-ret-2.png",
+    "images/diabetic-ret-3.png",
+    "images/diabetic-ret-4.png",
+    "images/diabetic-ret-5.png",
+    "images/glaucoom-1.png",
+    "images/glaucoom-2.png",
+    "images/glaucoom-3.png",
+    "images/glaucoom-4.png",
+    "images/glaucoom-5.png",
+    "images/macula-deg-1.png",
+    "images/macula-deg-2.png",
+    "images/macula-deg-3.png",
+    "images/macula-deg-4.png",
+    "images/ret-pigmentosa-1.png",
+    "images/ret-pigmentosa-2.png",
+    "images/ret-pigmentosa-3.png",
+    "images/ret-pigmentosa-4.png",
+    "images/ret-pigmentosa-5.png",
+    "anomalies.svg"
+  ]
+}
