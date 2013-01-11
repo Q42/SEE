@@ -124,7 +124,7 @@ function changeColors(prot,deut,trit,cataract,sat) {
 	//var videos = document.getElementsByTagName('video');
 	//for(var i=0;i<videos.length;i++) videos[i].style.webkitFilter = f.length?f.join(' '):null;
 
-	if(!prot>0||deut>0||trit>0) {
+	if(prot>0||deut>0||trit>0) {
 	  if(!_svg.parentNode) document.body.appendChild(_svg);
 	}
 	else if(_svg.parentNode) document.body.removeChild(_svg);
