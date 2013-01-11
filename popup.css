@@ -12,7 +12,6 @@ body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	background-color: #fff;
 	width:310px;
-	color:#fff200;
 }
 
 header {
@@ -80,6 +79,7 @@ a.info {
 }
 p.info-panel {
 	display:none;
+	position: absolute;
 	-webkit-transition: all 0.3s ease-out;
 	border-bottom:1px solid #529d03;
 	margin:0;
@@ -87,6 +87,7 @@ p.info-panel {
 	background-color:#ebfcd9;
 	padding:10px;
 	font-size:13px;
+	box-shadow: 0 2px 3px rgba(0,0,0,0.2);
 }
 a.info:hover + p.info-panel,
 a.info:focus + p.info-panel { 
@@ -199,22 +200,10 @@ footer a {
 	height: 36px;
 	margin: 0 5px;
 }
-footer a#accessibility {
-	width: 100px;
-	height: 25px;
-	background: transparent url(images/ui/accessibility.png) center center no-repeat;
-}
 footer a#q42 {
 	width: 28px;
 	height: 42px;
 	margin-right:5px;
 	margin-top:-12px;
 	background: transparent url(images/ui/q42.png) center center no-repeat;
-}
-footer a#w00tcamp {
-  color: inherit;
-  line-height: 35px;
-  vertical-align: 0px;
-  margin: 0 0;
-  text-decoration: underline;
 }
