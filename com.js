@@ -21,7 +21,7 @@ function setValue(type,value) {
 			for(var j = 0; j < windows[i].tabs.length; j++) {
 				var tab = windows[i].tabs[j];
 				if(/^https?\:\/\//.test(tab.url))
-					chrome.tabs.executeScript(tab.id, {code:"imgControl.filters."+type+" = "+filters[type]});
+					chrome.tabs.executeScript(tab.id, {code:"filters."+type+" = "+filters[type]});
 			}
 		}
 	});
