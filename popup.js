@@ -17,21 +17,18 @@ $('input[data-role=set-cover]').change(function(){com('cover',this.value*1?'imag
 $('input[data-role=set-color]').change(function(){com(this.id.replace('slider-',''),this.value)});
 document.onkeyup = function(e){if(e.keyCode==8||e.keyCode==46)com('cover',null)};
 
-com();
-
-function com(a,v){chrome.extension.sendMessage({action:a,value:v},parseFilters)};
-function parseFilters(d){
-	for(var x in d) {
-		var $e = null;
-		if(x=='cover') {
-			if(/^\"/.test(d[x]))d[x]=d[x].substr(1,d[x].length-2);
-			$e=(d.cover?$('#'+d.cover.replace(/^.*\/(.*)-\d\.png$/,'$1')):$('input[data-role=set-cover]'))
-				.val(d.cover?d.cover.replace(/^.*-(\d)\.png$/,'$1'):0);
-		}
-		else $e=$('#slider-'+x).val(d[x]);
-		if($e&&d[x]) {
-			var $ct = $e.closest('.accordion-content');
-			if(!$ct.hasClass('open-content')) $ct.prev().children('a').click();
-		}
+function com(a,v){chrome.extension.sendMessage({action:a,value:v},function(d){for(var x in d){
+	var $e = null;
+	if(x=='cover') {
+		if(/^\"/.test(d[x]))d[x]=d[x].substr(1,d[x].length-2);
+		$e=(d.cover?$('#'+d.cover.replace(/^.*\/(.*)-\d\.png$/,'$1')):$('input[data-role=set-cover]'))
+			.val(d.cover?d.cover.replace(/^.*-(\d)\.png$/,'$1'):0);
 	}
-};
+	else $e=$('#slider-'+x).val(d[x]);
+	if($e&&d[x]) {
+		var $ct = $e.closest('.accordion-content');
+		if(!$ct.hasClass('open-content')) $ct.prev().children('a').click();
+	}
+}})};
+
+com();

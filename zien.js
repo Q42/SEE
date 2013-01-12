@@ -2,7 +2,6 @@
 
 svg = document.createElement('div');svg.style.display = 'none';
 vp = document.createElement('div');vp.id = 'sight-cover';
-fu = chrome.extension.getURL('anomalies.svg');
 ws = [0,0],mcoo = [0,0],raf = false;
 
 current = {
@@ -59,7 +58,7 @@ function changeColors() {
 	if(f.deutanomaly>0) c.push('url(#deut'+f.deutanomaly*100+')');
 	if(f.tritanomaly>0) c.push('url(#trit'+f.tritanomaly*100+')');
 
-	if(filters.protanomaly>0||filters.deutanomaly>0||filters.tritanomaly>0) {
+	if(f.protanomaly>0||f.deutanomaly>0||f.tritanomaly>0) {
 	  if(!svg.parentNode) document.body.appendChild(svg);
 	}
 	else if(svg.parentNode) document.body.removeChild(svg);
