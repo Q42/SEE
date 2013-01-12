@@ -1,6 +1,6 @@
 {
   "name": "SEE",
-  "version": "1.12",
+  "version": "1.13",
   "manifest_version": 2,
   "description": "SEE lets you view the web as a user with a visual impairment might",
   "icons": { "16": "icon16.png",
