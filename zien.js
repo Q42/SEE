@@ -49,6 +49,7 @@ filters = {
 	}
 };
 
+var to;
 function changeColors() {
 	var c = [], f = filters;
 
@@ -63,13 +64,19 @@ function changeColors() {
 	}
 	else if(svg.parentNode) document.body.removeChild(svg);
 	
-	document.getElementsByTagName('html')[0].style.webkitFilter = c.length?c.join(' '):null;
-	var allEls = document.getElementsByTagName('div');
-	for(var i=0;i<allEls.length;i++) {
-		var trans = getComputedStyle(allEls[i],null).getPropertyValue('-webkit-transform');
-		if(trans && (c.length && trans != 'none'))
-			allEls[i].style.webkitTransform = c.length?'none':null;
-	}
+	clearTimeout(to);
+	to = setTimeout(function(c){
+		document.getElementsByTagName('html')[0].style.webkitFilter = c.length?c.join(' '):null;
+		var allEls = document.body.querySelectorAll('*');
+		for(var i=0;i<allEls.length;i++) {
+		  var el = allEls[i];
+			if(!el.oValue) {
+			  el.oValue = getComputedStyle(el,null).getPropertyValue('-webkit-transform');
+			  if(el.oValue=='none')el.oValue=null;
+			}
+			if(el.oValue) el.style.webkitTransform = el.oValue;
+		}
+	},10,c);
 };
 
 function loop(){
