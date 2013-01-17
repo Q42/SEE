@@ -1,8 +1,7 @@
 //by marcel@q42.nl & johan@q42.nl
 
-svg = document.createElement('div');svg.style.display = 'none';
 vp = document.createElement('div');vp.id = 'sight-cover';
-ws = [0,0],mcoo = [0,0],raf = false;
+to = null, mcoo = [0,0], raf = false;
 
 current = {
 	protanomaly: 0,
@@ -49,7 +48,6 @@ filters = {
 	}
 };
 
-var to;
 function changeColors() {
 	var c = [], f = filters;
 
@@ -93,11 +91,6 @@ function hasClass(_,n) {n=n.toLowerCase();var c=_.className.split(' ');for(var i
 
 onkeyup = function (e){if (e.keyCode == 27)com(current)};
 onmousemove = function (e){mcoo = [(e.clientX/innerWidth)*2-1,-(e.clientY/innerHeight)*2+1]};
-
-xhr = new XMLHttpRequest();
-xhr.onload=function(){svg.innerHTML = xhr.responseText};
-xhr.open('GET',chrome.extension.getURL('anomalies.svg'),true);
-xhr.send(null);
 
 setTimeout(function(){chrome.extension.sendMessage({},function(d){
 	for(var x in d) filters[x]=d[x];

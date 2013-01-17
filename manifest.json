@@ -1,6 +1,6 @@
 {
   "name": "SEE",
-  "version": "1.13",
+  "version": "1.14",
   "manifest_version": 2,
   "description": "SEE lets you view the web as a user with a visual impairment might",
   "icons": { "16": "icon16.png",
@@ -18,7 +18,7 @@
     {
       "matches": ["http://*/*", "https://*/*"],
       "css": ["zien.css"],
-      "js": ["zien.js"]
+      "js": ["anomalies.js","zien.js"]
     }
   ],
   "permissions": [
@@ -43,7 +43,6 @@
     "images/ret-pigmentosa-2.png",
     "images/ret-pigmentosa-3.png",
     "images/ret-pigmentosa-4.png",
-    "images/ret-pigmentosa-5.png",
-    "anomalies.svg"
+    "images/ret-pigmentosa-5.png"
   ]
 }
